@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-r))(6=($5z@wbav_a%7ug8^hi(&l(q%l0jz^2k=ju51y7%-_l^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'chat-app-i6w9.onrender.com']
 CORS_ALLOWED_ORIGINS = [
