@@ -1,0 +1,21 @@
+<div class="logout">
+    <a href="{% url 'account_logout' %}">Log out</a>
+</div>
+<h1>Enter Room</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="">Room name</label><br>
+    <input type="text" placeholder="room name" name="room" required>
+    <br>
+    <center><button type="submit">Submit</button></center><br>
+</form>
+
+<!-- Display Recent Rooms -->
+{% if recent_rooms %}
+  <h2>Recent Rooms:</h2>
+  <ul>
+    {% for recent_room in recent_rooms %}
+      <li><a href="{% url 'room' room_name=recent_room.room_name username=request.user.username %}">{{ recent_room.room_name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endif %}

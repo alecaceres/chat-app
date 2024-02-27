@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,25 +9,29 @@
     <title>Messages</title>
     <!-- link to h=css file -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <div class="parent">
         <div class="child-2">
-            <center><h2>Chats</h2></center><hr>
+            <div class="logout">
+                <a href="{% url 'account_logout' %}">Log out</a>
+            </div>
+            <center><h2>Chats</h2></center>
             <div class="chat-body-parent">
                 <div class="chat-body" id="tasks">
                     <div class="message" id="chatContainer">
                       {% for message in messages %}
                         {% if  message.sender != user %}
                             <div class="receive">
-                                <p style="color: #000;">
+                                <p>
                                     {{message.message}}
                                     <strong>{{message.sender}}</strong>
                                 </p>
                             </div>
                         {% else %}
                             <div class="send">
-                                <p style="color: #000;">
+                                <p>
                                     {{message.message}}
                                 </p>
                             </div>
@@ -91,9 +96,9 @@
         // Append the message to the chatbox
         var messageDiv = document.querySelector('.message');
         if (sender != '{{user}}') { // Assuming you have a variable `currentUser` to hold the current user's name
-            messageDiv.innerHTML += '<div class="receive"><p style="color: #000;">' + message + '<strong>-' + sender + '</strong></p></div>';
+            messageDiv.innerHTML += '<div class="receive"><p>' + message + '<strong>-' + sender + '</strong></p></div>';
         } else {
-            messageDiv.innerHTML += '<div class="send"><p style="color: #000;">' + message + '</p></div>';
+            messageDiv.innerHTML += '<div class="send"><p>' + message + '</p></div>';
         }
         scrollToBottom();
     });
@@ -108,7 +113,7 @@
 
 
     .parent {
-      background-color: #B1A296;
+      background-color: var(--bg-colour);
     }
 
     nav {
@@ -206,7 +211,7 @@
         margin: 10px;
         border-radius: 10px;
         padding: 10px;
-        background-color: #FBEEC1;
+        background-color: var(--fg-colour);
     }
 
     .chat-body-parent {
@@ -232,7 +237,7 @@
     }
 
     .chat-body .message .receive, .send {
-        background-color: #B1A296;
+        background-color: var(--bg-colour);
         max-width: 400px;
        
         border-radius: 10px;
@@ -270,20 +275,19 @@
         border-radius: 10px;
         padding: 10px;
     }
-
-    form button {
-        width: 25%;
-        padding: 10px;
-        background-color: #FBEEC1;
-        border-radius: 5px;
-        border: none;
-        color: #000;
-    }
     @media only screen and (max-width: 600px) {
-    .child-2 {
-        width: 100%;
+        .child-2 {
+            width: 100%;
+        }
     }
-}
 
+    p,
+    p strong {
+        color: var(--white) !important;
+    }
+
+    p strong {
+        font-size: 12px;
+    }
 </style>
 </html>

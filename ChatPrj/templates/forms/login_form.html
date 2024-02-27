@@ -1,0 +1,6 @@
+{% load socialaccount %}
+<h1>Log in</h1>
+<div class="social-login-container">
+    <a href="{% provider_login_url 'github' %}" class="github-login-button">GitHub</a><br>
+    <a href="{% provider_login_url 'google'  action="reauthenticate" %}" class="google-login-button">Google</a><br>
+</div>

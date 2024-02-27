@@ -1,0 +1,113 @@
+:root {
+    --bg-colour: #13315C;
+    --fg-colour: #EEF4ED;
+    --text-colour: #0B2545;
+    --white: #EEF4ED;
+}  
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: var(--text-colour);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.parent {
+    background-color: var(--bg-colour);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.child {
+    display: flex;
+    background-color: var(--fg-colour);
+    height: 80vh;
+    width: 50%;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 100px;
+    gap: 1.5rem;
+}
+
+form {
+    width: 80%;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid dodgerblue;
+    width: 100%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #DAAD86;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 20%;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #DAAD86EE;
+}
+
+.github-login-button,
+.google-login-button {
+    display: inline-block;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.github-login-button {
+    background-color: #24292e;
+}
+
+.github-login-button:hover {
+    background-color: #24292ee0;
+}
+
+.google-login-button {
+    background-color: #4285F4;
+}
+
+.google-login-button:hover {
+    background-color: #4285F4e0;
+}
+
+.logout {
+    text-align: right;
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.logout a {
+    text-decoration: none;
+}
+
+.logout a:hover {
+    opacity: 0.85;
+}
+
+.social-login-container {
+    display: flex;
+    gap: 0.5rem;
+}
