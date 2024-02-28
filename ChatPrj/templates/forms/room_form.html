@@ -2,6 +2,7 @@
     <a href="{% url 'account_logout' %}">Log out</a>
 </div>
 <h1>Enter Room</h1>
+<p>Join an existing room or create a new one:</p>
 <form action="" method="POST">
     {% csrf_token %}
     <label for="">Room name</label><br>
@@ -12,7 +13,8 @@
 
 <!-- Display Recent Rooms -->
 {% if recent_rooms %}
-  <h2>Recent Rooms:</h2>
+  <h2>Recent Rooms</h2>
+  <p>You can also choose one of these</p>
   <ul>
     {% for recent_room in recent_rooms %}
       <li><a href="{% url 'room' room_name=recent_room.room_name username=request.user.username %}">{{ recent_room.room_name }}</a></li>
